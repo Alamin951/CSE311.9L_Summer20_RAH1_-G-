@@ -16,10 +16,10 @@
 
 <div class="login-page">
   <div class="form">
-    <form class="login-form" action="mainpage.php" method="post">
+    <form class="login-form" action="after_log.php" method="post">
       <input type="text" name="userid" placeholder="userid" required="" />
       <input type="password" name="password" placeholder="password" required="" />
-      <button>login</button>
+      <button action="after_log.php">login</button>
       <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
     </form>
   </div>
