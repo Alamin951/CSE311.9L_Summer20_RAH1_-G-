@@ -18,10 +18,11 @@
 		<h1>Creative SignUp Form</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="insert.php" method="post">
-					<input class="text" type="text" name="userid" placeholder="User ID" required=""><br>
+				<form action="g_insert.php" method="post">
+					<input class="text" type="text" name="userid" placeholder="NID" required=""><br>
 					<input class="text" type="text" name="fname" placeholder="First Name" required=""><br>
-					<input class="text" type="text" name="lname" placeholder="Last Name" required="">
+					<input class="text" type="text" name="lname" placeholder="Last Name" required=""><br>
+					<input class="text" type="text" name="phn" placeholder="Phone Number" required=""><br>
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
 					<input class="text w3lpass" type="password" name="cpassword" placeholder="Confirm Password" required="">
@@ -34,7 +35,7 @@
 					</div>
 					<input type="submit" value="SIGNUP">
 				</form>
-				<p>Don't have an Account? <a href="login.php"> Login Now!</a></p>
+				<p>Don't have an Account? <a href="g_login.php"> Login Now!</a></p>
 			</div>
 		</div>
 		<!-- copyright -->

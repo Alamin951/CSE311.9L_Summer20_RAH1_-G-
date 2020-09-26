@@ -5,8 +5,8 @@
                     $id=$_POST['userid'];
                     $pass=$_POST['password'];
 
-                    $result= "SELECT * FROM user_info";
-                    $result_1= "SELECT email FROM user_info WHERE id='$id'";
+                    $result= "SELECT * FROM guest_info";
+                    $result_1= "SELECT first_name,last_name FROM guest_info WHERE NID='$id'";
                     $query= mysqli_query($conn,$result);
                     $query_1= mysqli_query($conn,$result_1);
 
@@ -16,7 +16,7 @@
 
                     while($row=mysqli_fetch_assoc($query))
                     {
-                    	if($id===$row["id"] and $lg_pass===substr($row["pass"],0,10)){
+                    	if($id===$row["NID"] and $lg_pass===substr($row["pass"],0,10)){
                     	$log_reslt="passed";
                     	break;
                     }
@@ -96,14 +96,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">'.$row_1["email"].'</a>
+      <a class="navbar-brand" href="#">'.$row_1["first_name"]." ".$row_1["last_name"].'</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="resrvation_table.php">Reservation</a></li>
         <li><a href="table.php">Room</a></li>
         <li><a href="signup.php">Add Employee</a></li>
-        <li><a href="login.php">Log Out</a></li>
+        <li><a href="g_login.php">Log Out</a></li>
       </ul>
     </div>
   </div>

@@ -16,11 +16,13 @@
 
 <div class="login-page">
   <div class="form">
-    <form class="login-form" action="after_log.php" method="post">
-      <input type="text" name="userid" placeholder="userid" required="" />
+    <form class="login-form" action="g_after_log.php" method="post">
+      <input type="text" name="userid" placeholder="id" required="" />
       <input type="password" name="password" placeholder="password" required="" />
       <button action="after_log.php">login</button>
+      <p class="message">Not registered? <a href="g_signup.php">Create an account</a></p>
     </form>
+
   </div>
   <script src="js/login.js"></script>
 </div>

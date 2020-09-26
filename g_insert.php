@@ -3,10 +3,11 @@ require "connection.php";
 
 if (isset($_POST["userid"])) {
 
- $id=$_POST["userid"];
+ $nid=$_POST["userid"];
  $mail=$_POST["email"];
  $fname=$_POST["fname"];
  $lname=$_POST["lname"];
+  $phn=$_POST["phn"];
  $password=$_POST["password"];
  $config_password=$_POST["cpassword"];
  $cryp_pass=crypt($password,"st");
@@ -14,11 +15,11 @@ if (isset($_POST["userid"])) {
 
   
   if($cryp_pass===$cryp_cpass){
-  	   $query_count=mysqli_query($conn,"SELECT * FROM user_info WHERE id='$id'");
+  	   $query_count=mysqli_query($conn,"SELECT * FROM guest_info WHERE NID='$nid'");
        $count=mysqli_num_rows($query_count);
        if($count===0){
-   $query=mysqli_query($conn,"INSERT INTO user_info(id,email,pass,conf_pass,first_name,last_name)
-	VALUES ('$id','$mail','$cryp_pass','$cryp_cpass','$fname','$lname')");
+   $query=mysqli_query($conn,"INSERT INTO guest_info(NID,first_name,last_name,email,phn_number,pass,conf_pass)
+	VALUES ('$nid','$fname','$lname','$mail','$phn','$cryp_pass','$cryp_cpass')");
    if($query)
    {
 	   echo "successfully inserted";
