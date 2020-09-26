@@ -6,7 +6,7 @@
                     $pass=$_POST['password'];
 
                     $result= "SELECT * FROM user_info";
-                    $result_1= "SELECT email FROM user_info WHERE id='$id'";
+                    $result_1= "SELECT first_name,last_name FROM user_info WHERE id='$id'";
                     $query= mysqli_query($conn,$result);
                     $query_1= mysqli_query($conn,$result_1);
 
@@ -96,7 +96,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">'.$row_1["email"].'</a>
+      <a class="navbar-brand" href="#">'.$row_1["first_name"]." ".$row_1["last_name"].'</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
