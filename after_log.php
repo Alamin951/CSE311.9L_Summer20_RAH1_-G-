@@ -45,10 +45,7 @@
 
                     if($log_reslt===""){
                     echo "Password Wrong, didn't match.<br>";
-                    echo "
-                    <form action='login.php' method='post'>
-    <input type='submit' name='insert' value='Back' class='btn btn-primary'>
-</form>";
+  
                     
                 }
                 else{
