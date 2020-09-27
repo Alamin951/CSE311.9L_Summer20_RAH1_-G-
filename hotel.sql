@@ -71,8 +71,96 @@ INSERT INTO `user_info` (`id`, `email`, `pass`, `conf_pass`, `first_name`, `last
 ('186', 'hin18@email.com', 'stncP43Inm', 'stncP43Inm', 'Md.Asif', 'Rahman');
 
 --
--- Indexes for dumped tables
+-- Table structure for table `payment`
 --
+
+CREATE TABLE `payment` (
+  `id` int(11) AUTO_INCREMENT DEFAULT NULL,
+  `guest-id` int(10) DEFAULT NULL,
+  `title` varchar(5) DEFAULT NULL,
+  `fname` varchar(30) DEFAULT NULL,
+  `lname` varchar(30) DEFAULT NULL,
+  `troom` varchar(30) DEFAULT NULL,
+  `nroom` int(11) DEFAULT NULL,
+  `noofdays` int(11) DEFAULT NULL,
+  `cin` date DEFAULT NULL,
+  `cout` date DEFAULT NULL,
+  `room_mrp` double(8,2) DEFAULT NULL,
+  `Amount` double(8,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+`id` int(10) unsigned NOT NULL,
+  `type` varchar(15) DEFAULT NULL,
+  `bedding` varchar(10) DEFAULT NULL,
+  `place` varchar(10) DEFAULT NULL,
+  `cusid` int(11) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`) VALUES
+(1, 'Superior Room', 'Single', 'Free', NULL),
+(2, 'Superior Room', 'Double', 'Free', NULL),
+(3, 'Superior Room', 'Triple', 'Free', NULL),
+(4, 'Superior Room', 'Quad', 'Free', NULL),
+(4, 'Deluxe Room', 'Single', 'Free', NULL),
+(6, 'Deluxe Room', 'Double', 'Free', NULL),
+(7, 'Deluxe Room', 'Triple', 'Free', NULL),
+(8, 'Deluxe Room', 'Quad', 'Free', NULL),
+(9, 'Single Room', 'Single', 'Free', NULL),
+(10, 'Single Room', 'Double', 'Free', NULL),
+(11, 'Single Room', 'Triple', 'Free', NULL),
+(12, 'Single Room', 'Quad', 'Free', NULL);
+
+--
+-- Table structure for table `roombook`
+--
+
+CREATE TABLE `roombook` (
+  `id` int(10) AUTO_INCREMENT NOT NULL,
+  `guest_id` int(10) NOT NULL,
+  `Title` varchar(5) DEFAULT NULL,
+  `TRoom` varchar(20) DEFAULT NULL,
+  `NRoom` varchar(2) DEFAULT NULL,
+  `cin` date DEFAULT NULL,
+  `cout` date DEFAULT NULL,
+  `stat` varchar(15) DEFAULT NULL,
+  `adult` int(10) NULL,
+  `children` int(10) NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Indexes for table `room_status`
+--
+CREATE TABLE `room_status` (
+  `id` int(10) NOT NULL,
+  `status` varchar(50) NOT NULL
+  ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+
+--
+-- Indexes for table `room`
+--
+ALTER TABLE `room_status`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `room_status`
+--
+ALTER TABLE `room`
+ ADD PRIMARY KEY (`id`);
+
+ --
+-- Indexes for table `roombook`
+--
+ALTER TABLE `roombook`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guest_info`
