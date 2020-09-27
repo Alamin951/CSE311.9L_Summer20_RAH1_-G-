@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registration Form</title>
-	<link rel="stylesheet" href="styles.css">
+  <title>Reservation Form</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="wrapper">
     <div class="title">
-      Registration Form
+      Reservation Form
     </div>
-    <div class="form">
+  <div class="form">
        <div class="inputfield">
-          <label>First Name</label>
+          <label>Room</label>
           <input type="text" class="input">
-       </div>  
-        <div class="inputfield">
-          <label>Last Name</label>
+       </div>
+     <div class="inputfield">
+          <label>Number Of Room</label>
           <input type="text" class="input">
-       </div>  
+       </div> 
+      
+   
+     <div class="inputfield">
+          <label>Guest ID</label>
+          <input type="text" class="input">
+       </div> 
+      
+      <div class="inputfield">
+          <label>Reservation Date</label>
+       <input type="datetime-local" class="input">
+       </div>
        <div class="inputfield">
-          <label>Password</label>
-          <input type="password" class="input">
+          <label>Check In Date</label>
+          <input type="datetime-local" class="input">
        </div>  
       <div class="inputfield">
-          <label>Confirm Password</label>
-          <input type="password" class="input">
-       </div> 
-        <div class="inputfield">
-          <label>Gender</label>
-          <div class="custom_select">
-            <select>
-              <option value="">Select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
-       </div> 
-        <div class="inputfield">
-          <label>Email Address</label>
+          <label>Check Out Date</label>
+          <input type="datetime-local" class="input">
+       </div>
+     
+      <div class="inputfield">
+          <label>Adult</label>
           <input type="text" class="input">
-       </div> 
+       </div>
       <div class="inputfield">
-          <label>Phone Number</label>
-          <input type="text" class="input">
-       </div> 
-      <div class="inputfield">
-          <label>Address</label>
-          <textarea class="textarea"></textarea>
-       </div> 
-      <div class="inputfield">
-          <label>Postal Code</label>
+          <label>Children</label>
           <input type="text" class="input">
        </div> 
       <div class="inputfield terms">
@@ -66,7 +60,7 @@
         <input type="submit" value="Register" class="btn">
       </div>
     </div>
-</div>	
-	
+</div>  
+  
 </body>
 </html>
