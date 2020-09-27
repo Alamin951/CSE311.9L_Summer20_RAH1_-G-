@@ -58,7 +58,7 @@ include('db.php');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a class="navbar-brand" href="index.php">AMAR <span>DESH</span> HOTEL<p class="logo_w3l_agile_caption">Your Dreamy Resort</p></a></h1>
+					<h1><a class="navbar-brand" href="index.php">AMAR <span>DESH</span> HOTEL<p class="logo_w3l_agile_caption">Your desired Dreamy Resort</p></a></h1>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -66,11 +66,11 @@ include('db.php');
 						<ul class="nav navbar-nav menu__list">
 							<li class="menu__item"><a href="index.php" class="menu__link">Home</a></li>
 							<li class="menu__item"><a href="#about" class="menu__link scroll">About</a></li>
-							<li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
 							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Gallery</a></li>
 							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Rooms</a></li>
-							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contact Us</a></li>
-              <li class="menu__item"><a href="login.php" >Log In</a></li>
+							<li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
+							<li class="menu__item"><a href="g_login.php">Log In</a></li>
+              				<li class="menu__item"><a href="login.php" > Admin</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -359,6 +359,86 @@ include('db.php');
 				<div class="clearfix"> </div>
 </section>
 <!-- //gallery -->
+<!-- rooms & rates -->
+      <div class="plans-section" id="rooms">
+				 <div class="container">
+				 <h3 class="title-w3-agileits title-black-wthree">Rooms And Rates</h3>
+						<div class="priceing-table-main">
+				<div class="col-md-3 price-grid ">
+					<div class="price-block agile">
+						<div class="price-gd-top">
+						<img src="images/r2.jpg" alt=" " class="img-responsive" />
+							<h4>Luxury Room</h4>
+						</div>
+						<div class="price-gd-bottom">
+							<div class="price-list">
+									<ul>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
+							</div>
+							<div class="price-selet">
+								<h3><span>$</span>10000</h3>
+								<a href="admin/reservation.php" >Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>			
+				 <div class="col-md-3 price-grid">
+					<div class="price-block agile">
+						<div class="price-gd-top">
+						<img src="images/r1.jpg" alt=" " class="img-responsive" />
+							<h4>Deluxe Room</h4>
+						</div>
+						<div class="price-gd-bottom">
+							   <div class="price-list">
+									<ul>
+											<li><i class="fa fa-star" aria-hidden="true"></i></li>
+											<li><i class="fa fa-star" aria-hidden="true"></i></li>
+											<li><i class="fa fa-star" aria-hidden="true"></i></li>
+											<li><i class="fa fa-star" aria-hidden="true"></i></li>
+											<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+									
+								     </ul>
+							</div>
+							<div class="price-selet">	
+								<h3><span>$</span>5000</h3>						
+								<a href="admin/reservation.php" >Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 price-grid wthree lost">
+					<div class="price-block agile">
+						<div class="price-gd-top ">
+							<img src="images/r4.jpg" alt=" " class="img-responsive" />
+							<h4>Single Room</h4>
+						</div>
+						<div class="price-gd-bottom">
+							<div class="price-list">
+								<ul>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
+							</div>
+							<div class="price-selet">
+								<h3><span>$</span> 2500</h3>
+								<a href="admin/reservation.php" >Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!--// rooms & rates -->
 <!-- team -->
 <div class="team" id="team">
 	<div class="container">
@@ -380,12 +460,6 @@ include('db.php');
 	</div>
 </div>
 <!-- //team -->
-
-
-
-
-
-
 
 <!-- /contact -->
 			<div class="copy">
