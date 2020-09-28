@@ -36,32 +36,41 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">username</th>
-									<th class="cell100 column2">Email</th>
-									<th class="cell100 column3">pass</th>
-									<th class="cell100 column4">c_pass</th>
-									<th class="cell100 column3">fname</th>
-									<th class="cell100 column4">lname</th>
-
+									<th class="cell100 column1">Guest Id</th>
+									<th class="cell100 column2">First Name</th>
+									<th class="cell100 column3">Last Name</th>
+									<th class="cell100 column4">Email</th>
+									<th class="cell100 column5">Phn_Number</th>
+									<th class="cell100 column6">Bedding</th>
+									<th class="cell100 column7">C_In</th>
+									<th class="cell100 column8">C_Out</th>
+									<th class="cell100 column9">Adult</th>
+									<th class="cell100 column10">Children</th>
 								</tr>
 							</thead>
 						</table>
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT * FROM user_info";
+                    $result= "SELECT r.guest_id,g.first_name,g.last_name,g.email,g.phn_number,r.TRoom,r.bedding,r.cin,r.cout,r.adult,r.children
+FROM roombook AS r, guest_info AS g
+WHERE r.guest_id=g.NID";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
 						<table>
 							<tbody id="myTable">
 								<tr class="row100 body">
-									<td class="cell100 column1">'.$row["id"].'</td>
-									<td class="cell100 column2">'.$row["email"].'</td>
-									<td class="cell100 column3">'.$row["pass"].'</td>
-									<td class="cell100 column4">'.$row["conf_pass"].'</td>
-									<td class="cell100 column5">'.$row["first_name"].'</td>
-									<td class="cell100 column6">'.$row["last_name"].'</td>
+									<td class="cell100 column1">'.$row["guest_id"].'</td>
+									<td class="cell100 column2">'.$row["first_name"].'</td>
+									<td class="cell100 column3">'.$row["last_name"].'</td>
+									<td class="cell100 column4">'.$row["email"].'</td>
+									<td class="cell100 column5">'.$row["phn_number"].'</td>
+									<td class="cell100 column6">'.$row["TRoom"].'</td>
+									<td class="cell100 column7">'.$row["bedding"].'</td>
+									<td class="cell100 column8">'.$row["cin"].'</td>
+									<td class="cell100 column9">'.$row["cout"].'</td>
+									<td class="cell100 column10">'.$row["children"].'</td>
 									
 								</tr>
 
