@@ -100,9 +100,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="resrvation_table.php">Reservation</a></li>
-        <li><a href="table.php">Room</a></li>
-        <li><a href="signup.php">Add Employee</a></li>
+        <li><a href="admin/reservation.php">Reservation Form</a></li>
+        <li><a href="availabe_room.php">Room Availabe</a></li>
+        <li><a href="signup.php">Payment Status</a></li>
         <li><a href="index.php">Log Out</a></li>
       </ul>
     </div>
