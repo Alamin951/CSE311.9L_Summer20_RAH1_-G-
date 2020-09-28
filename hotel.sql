@@ -75,7 +75,7 @@ INSERT INTO `user_info` (`id`, `email`, `pass`, `conf_pass`, `first_name`, `last
 --
 
 CREATE TABLE `payment` (
-  `id` int(11) AUTO_INCREMENT DEFAULT NULL,
+  `id` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `guest-id` int(10) DEFAULT NULL,
   `title` varchar(5) DEFAULT NULL,
   `fname` varchar(30) DEFAULT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE `room` (
 `id` int(10) unsigned NOT NULL,
   `type` varchar(15) DEFAULT NULL,
   `bedding` varchar(10) DEFAULT NULL,
-  `place` varchar(10) DEFAULT NULL,
+  `price` int(8) DEFAULT NULL,
   `cusid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
@@ -104,30 +104,30 @@ CREATE TABLE `room` (
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`) VALUES
-(1, 'Superior Room', 'Single', 'Free', NULL),
-(2, 'Superior Room', 'Double', 'Free', NULL),
-(3, 'Superior Room', 'Triple', 'Free', NULL),
-(4, 'Superior Room', 'Quad', 'Free', NULL),
-(4, 'Deluxe Room', 'Single', 'Free', NULL),
-(6, 'Deluxe Room', 'Double', 'Free', NULL),
-(7, 'Deluxe Room', 'Triple', 'Free', NULL),
-(8, 'Deluxe Room', 'Quad', 'Free', NULL),
-(9, 'Single Room', 'Single', 'Free', NULL),
-(10, 'Single Room', 'Double', 'Free', NULL),
-(11, 'Single Room', 'Triple', 'Free', NULL),
-(12, 'Single Room', 'Quad', 'Free', NULL);
+INSERT INTO `room` (`id`, `type`, `bedding`, `price`, `cusid`) VALUES
+(1, 'Luxury Room', 'Single', 10000, NULL),
+(2, 'Luxury Room', 'Double', 11000, NULL),
+(3, 'Luxury Room', 'Triple', 11500, NULL),
+(4, 'Luxury Room', 'Quad', 12000, NULL),
+(5, 'Deluxe Room', 'Single', 5000, NULL),
+(6, 'Deluxe Room', 'Double', 6000, NULL),
+(7, 'Deluxe Room', 'Triple', 6500, NULL),
+(8, 'Deluxe Room', 'Quad', 7000, NULL),
+(9, 'Single Room', 'Single', 2500, NULL),
+(10, 'Single Room', 'Double', 3500, NULL),
+(11, 'Single Room', 'Triple', 4000, NULL),
+(12, 'Single Room', 'Quad', 4500, NULL);
 
 --
 -- Table structure for table `roombook`
 --
 
 CREATE TABLE `roombook` (
-  `id` int(10) AUTO_INCREMENT NOT NULL,
+  `id` int(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `guest_id` int(10) NOT NULL,
   `Title` varchar(5) DEFAULT NULL,
   `TRoom` varchar(20) DEFAULT NULL,
-  `NRoom` varchar(2) DEFAULT NULL,
+  `bedding` varchar(2) DEFAULT NULL,
   `cin` date DEFAULT NULL,
   `cout` date DEFAULT NULL,
   `stat` varchar(15) DEFAULT NULL,
@@ -156,11 +156,6 @@ ALTER TABLE `room_status`
 ALTER TABLE `room`
  ADD PRIMARY KEY (`id`);
 
- --
--- Indexes for table `roombook`
---
-ALTER TABLE `roombook`
- ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guest_info`

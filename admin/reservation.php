@@ -15,17 +15,26 @@
   <div class="form">
        <div class="inputfield">
           <label>Room</label>
-          <input type="text" class="input">
+          <select name="Room">
+            <option value="">--Select--</option>
+            <option value="Luxury">Luxury</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Single Room">Single Room</option>
+          </select>
        </div>
      <div class="inputfield">
-          <label>Number Of Room</label>
-          <input type="text" class="input">
+          <label>Number Of Bedding</label>
+          <select name="bedding">
+            <option value="">--Select--</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Triple">Triple</option>
+            <option value="Quad">Quad</option>
+          </select>
        </div> 
-      
-   
-     <div class="inputfield">
+       <div class="inputfield">
           <label>Guest ID</label>
-          <input type="text" class="input">
+          <input type="text" class="input" placeholder="Enter your Guest ID">
        </div> 
       
       <div class="inputfield">
@@ -43,11 +52,11 @@
      
       <div class="inputfield">
           <label>Adult</label>
-          <input type="text" class="input">
+          <input type="text" class="input" placeholder="Number of Adult">
        </div>
       <div class="inputfield">
           <label>Children</label>
-          <input type="text" class="input">
+          <input type="text" class="input" placeholder="Number of Children">
        </div> 
       <div class="inputfield terms">
           <label class="check">
