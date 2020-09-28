@@ -7,9 +7,15 @@
 
                     $result= "SELECT * FROM user_info";
                     $result_1= "SELECT first_name,last_name FROM user_info WHERE id='$id'";
+                    $result_2="SELECT COUNT(*) as c FROM room WHERE type='Superior Room'";
+                    $result_3="SELECT COUNT(*) as c FROM room WHERE type='Deluxe Room'";
+                    $result_4="SELECT COUNT(*) as c FROM room WHERE type='Single Room'";
+
                     $query= mysqli_query($conn,$result);
                     $query_1= mysqli_query($conn,$result_1);
-
+                    $query_2= mysqli_query($conn,$result_2);
+                    $query_3= mysqli_query($conn,$result_3);
+                     $query_4= mysqli_query($conn,$result_4);
                     $cyt_pass=crypt($pass,"st");
                     $lg_pass= substr($cyt_pass,0,10);
                     $log_reslt="";
@@ -29,6 +35,9 @@
                 }
                 else{
                 $row_1=mysqli_fetch_assoc($query_1); 
+                $row_2=mysqli_fetch_assoc($query_2); 
+                $row_3=mysqli_fetch_assoc($query_3); 
+                $row_4=mysqli_fetch_assoc($query_4); 
                 echo '
 
 
@@ -119,24 +128,24 @@
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
   <h3 class="margin">What Am I?</h3>
-  <p>Hellow, I am Md.Asif Rahman and I am the manger of this hotel </p>
+  <p>Hellow, I am '.$row_1["first_name"]." ".$row_1["last_name"].' and I am the manger of this hotel </p>
 </div>
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">    
-  <h3 class="margin">Where To Find Me?</h3><br>
+  <h3 class="margin">Specification Of Our Hotel?</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <p>'.$row_2["c"].' Superior Room of all variant</p>
+      <img src="images/g2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
     </div>
     <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <p>'.$row_3["c"].' Deluxe Room of all variant</p>
+      <img src="images/g4.jpg" class="img-responsive margin" style="width:100%" alt="Image">
     </div>
     <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <p>'.$row_4["c"].' Single Room of all variant</p>
+      <img src="images/g8.jpg" class="img-responsive margin" style="width:100%" alt="Image">
     </div>
   </div>
 </div>
