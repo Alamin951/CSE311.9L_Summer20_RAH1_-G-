@@ -36,8 +36,10 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Room Type</th>
-									<th class="cell100 column2">Available Room</th>
+									<th class="cell100 column1">Room Number</th>
+									<th class="cell100 column2">Type</th>
+									<th class="cell100 column3">Bedding</th>
+									<th class="cell100 column4">Price</th>
 
 								</tr>
 							</thead>
@@ -45,15 +47,17 @@
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT  type,COUNT(*) as c FROM room WHERE cusid is null GROUP BY type";
+                    $result= "SELECT * FROM room";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
 						<table>
 							<tbody id="myTable">
 								<tr class="row100 body">
-									<td class="cell100 column1">'.$row["type"].'</td>
-									<td class="cell100 column2">'.$row["c"].'</td>	
+									<td class="cell100 column1">'.$row["id"].'</td>
+									<td class="cell100 column2">'.$row["type"].'</td>
+									<td class="cell100 column3">'.$row["bedding"].'</td>	
+									<td class="cell100 column4">'.$row["price"].'</td>		
 								</tr>
 
 								

@@ -7,7 +7,7 @@
 
                     $result= "SELECT * FROM user_info";
                     $result_1= "SELECT first_name,last_name FROM user_info WHERE id='$id'";
-                    $result_2="SELECT COUNT(*) as c FROM room WHERE type='Superior Room'";
+                    $result_2="SELECT COUNT(*) as c FROM room WHERE type='Luxury Room'";
                     $result_3="SELECT COUNT(*) as c FROM room WHERE type='Deluxe Room'";
                     $result_4="SELECT COUNT(*) as c FROM room WHERE type='Single Room'";
 

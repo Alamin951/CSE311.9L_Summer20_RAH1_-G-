@@ -66,10 +66,10 @@ WHERE r.guest_id=g.NID";
 									<td class="cell100 column3">'.$row["last_name"].'</td>
 									<td class="cell100 column4">'.$row["email"].'</td>
 									<td class="cell100 column5">'.$row["phn_number"].'</td>
-									<td class="cell100 column6">'.$row["TRoom"].'</td>
-									<td class="cell100 column7">'.$row["bedding"].'</td>
-									<td class="cell100 column8">'.$row["cin"].'</td>
-									<td class="cell100 column9">'.$row["cout"].'</td>
+									<td class="cell200 column6">'.$row["TRoom"].'</td>
+									<td class="cell100 column7">'.$row["cin"].'</td>
+									<td class="cell100 column8">'.$row["cout"].'</td>
+									<td class="cell100 column9">'.$row["adult"].'</td>
 									<td class="cell100 column10">'.$row["children"].'</td>
 									
 								</tr>
