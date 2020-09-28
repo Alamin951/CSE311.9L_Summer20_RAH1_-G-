@@ -125,12 +125,11 @@ INSERT INTO `room` (`id`, `type`, `bedding`, `price`, `cusid`) VALUES
 CREATE TABLE `roombook` (
   `id` int(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `guest_id` int(10) NOT NULL,
-  `Title` varchar(5) DEFAULT NULL,
   `TRoom` varchar(20) DEFAULT NULL,
   `bedding` varchar(2) DEFAULT NULL,
+  `rdate` date DEFAULT NULL,
   `cin` date DEFAULT NULL,
   `cout` date DEFAULT NULL,
-  `stat` varchar(15) DEFAULT NULL,
   `adult` int(10) NULL,
   `children` int(10) NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;

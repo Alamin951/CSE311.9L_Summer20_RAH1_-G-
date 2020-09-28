@@ -13,6 +13,7 @@
       Reservation Form
     </div>
   <div class="form">
+    <form action="reservation_insert.php" method="post">
        <div class="inputfield">
           <label>Room</label>
           <select name="Room">
@@ -34,29 +35,29 @@
        </div> 
        <div class="inputfield">
           <label>Guest ID</label>
-          <input type="text" class="input" placeholder="Enter your Guest ID">
+          <input type="text" name="g_id" class="input" placeholder="Enter your Guest ID">
        </div> 
       
       <div class="inputfield">
           <label>Reservation Date</label>
-       <input type="datetime-local" class="input">
+       <input type="datetime-local" class="input" name="rdate">
        </div>
        <div class="inputfield">
           <label>Check In Date</label>
-          <input type="datetime-local" class="input">
+          <input type="datetime-local" name="c_in" class="input">
        </div>  
       <div class="inputfield">
           <label>Check Out Date</label>
-          <input type="datetime-local" class="input">
+          <input type="datetime-local" name="c_out" class="input">
        </div>
      
       <div class="inputfield">
           <label>Adult</label>
-          <input type="text" class="input" placeholder="Number of Adult">
+          <input type="text" name="adult" class="input" placeholder="Number of Adult">
        </div>
       <div class="inputfield">
           <label>Children</label>
-          <input type="text" class="input" placeholder="Number of Children">
+          <input type="text" name="children" class="input" placeholder="Number of Children">
        </div> 
       <div class="inputfield terms">
           <label class="check">
@@ -68,6 +69,7 @@
       <div class="inputfield">
         <input type="submit" value="Register" class="btn">
       </div>
+    </form>
     </div>
 </div>  
   
