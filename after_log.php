@@ -113,6 +113,8 @@
         <li><a href="admin_room.php">Room</a></li>
         <li><a href="admin/add_room_form.php">Add Room</a></li>
         <li><a href="signup.php">Add Employee</a></li>
+        <li><a href="guest_account_list.php">Guest Account</a></li>
+        <li><a href="book_room.php">Booking</a></li>
         <li><a href="index.php">Log Out</a></li>
       </ul>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2020 at 08:42 AM
+-- Generation Time: Sep 29, 2020 at 07:09 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -43,7 +43,7 @@ CREATE TABLE `guest_info` (
 
 INSERT INTO `guest_info` (`NID`, `first_name`, `last_name`, `email`, `phn_number`, `pass`, `conf_pass`) VALUES
 ('123', 'Micro', 'Bots', 'microbots@email.com', '01777076628', 'st47YEBwYQMDM', 'st47YEBwYQMDM'),
-('124', 'Mic', 'Bots', 'micbots@email.com', '01777076629', 'stETX4M7te3.g', 'stETX4M7te3.g');
+('124', 'm', 'Rahman', 'm_rahman@email.com', '01711703098', 'stETX4M7te3.g', 'stETX4M7te3.g');
 
 -- --------------------------------------------------------
 
@@ -53,18 +53,19 @@ INSERT INTO `guest_info` (`NID`, `first_name`, `last_name`, `email`, `phn_number
 
 CREATE TABLE `payment` (
   `id` int(11) NOT NULL,
-  `guest-id` int(10) DEFAULT NULL,
-  `title` varchar(5) DEFAULT NULL,
-  `fname` varchar(30) DEFAULT NULL,
-  `lname` varchar(30) DEFAULT NULL,
-  `troom` varchar(30) DEFAULT NULL,
+  `guest_id` int(10) DEFAULT NULL,
   `nroom` int(11) DEFAULT NULL,
-  `noofdays` int(11) DEFAULT NULL,
-  `cin` date DEFAULT NULL,
-  `cout` date DEFAULT NULL,
-  `room_mrp` double(8,2) DEFAULT NULL,
-  `Amount` double(8,2) DEFAULT NULL
+  `payment_day` date DEFAULT NULL,
+  `room_mrp` int(15) DEFAULT NULL,
+  `Amount` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `guest_id`, `nroom`, `payment_day`, `room_mrp`, `Amount`) VALUES
+(28, 123, 2, '2020-09-29', NULL, 24000);
 
 -- --------------------------------------------------------
 
@@ -106,21 +107,20 @@ INSERT INTO `room` (`id`, `type`, `bedding`, `price`) VALUES
 CREATE TABLE `roombook` (
   `id` int(10) NOT NULL,
   `guest_id` int(10) NOT NULL,
-  `TRoom` varchar(20) DEFAULT NULL,
-  `bedding` varchar(2) DEFAULT NULL,
   `rdate` date DEFAULT NULL,
   `cin` date DEFAULT NULL,
   `cout` date DEFAULT NULL,
   `adult` int(10) DEFAULT NULL,
-  `children` int(10) DEFAULT NULL
+  `children` int(10) DEFAULT NULL,
+  `room_type_id` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `roombook`
 --
 
-INSERT INTO `roombook` (`id`, `guest_id`, `TRoom`, `bedding`, `rdate`, `cin`, `cout`, `adult`, `children`) VALUES
-(2, 123, 'Single Room', 'Si', '2020-09-28', '2020-09-29', '2020-09-30', 2, 1);
+INSERT INTO `roombook` (`id`, `guest_id`, `rdate`, `cin`, `cout`, `adult`, `children`, `room_type_id`) VALUES
+(4, 123, '2020-09-29', '2020-09-30', '2020-10-01', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -139,8 +139,8 @@ CREATE TABLE `room_num` (
 --
 
 INSERT INTO `room_num` (`id`, `t_id`, `cusid`) VALUES
-(101, 4, NULL),
-(102, 10, NULL);
+(101, 4, 123),
+(102, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -235,13 +235,13 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

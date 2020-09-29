@@ -25,7 +25,7 @@
 	<div class="container">
 	<h2 class="display-3">Filterable Table</h2>
 	<hr>
-  <p class="lead">Type something in the input field to search the table for first names, last names or emails:</p><br> </di>
+  <p class="lead">Search the NID of guest:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
 	<div class="limiter">
@@ -36,44 +36,33 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Guest Id</th>
+									<th class="cell100 column1">NID</th>
 									<th class="cell100 column2">First Name</th>
 									<th class="cell100 column3">Last Name</th>
 									<th class="cell100 column4">Email</th>
-									<th class="cell100 column5">Phn_Number</th>
-									<th class="cell100 column7">C_In</th>
-									<th class="cell100 column8">C_Out</th>
-									<th class="cell100 column9">Adult</th>
-									<th class="cell100 column10">Children</th>
-									<th class="cell100 column10">Type</th>
-									<th class="cell100 column10">Bedding</th>
+									<th class="cell100 column5">Phone</th>
+									<th class="cell100 column6">Delect</th>
+									
+
 								</tr>
 							</thead>
 						</table>
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT rb.guest_id,g.first_name,g.last_name,g.email,g.phn_number,rb.cin,rb.cout,rb.adult,rb.children,r.type,r.bedding
-FROM roombook AS rb, guest_info AS g, room as r
-WHERE rb.guest_id=g.NID AND r.id=rb.room_type_id";
+                    $result= "SELECT NID,first_name,last_name,email,phn_number FROM guest_info";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
 						<table>
 							<tbody id="myTable">
 								<tr class="row100 body">
-									<td class="cell100 column1">'.$row["guest_id"].'</td>
+									<td class="cell100 column1">'.$row["NID"].'</td>
 									<td class="cell100 column2">'.$row["first_name"].'</td>
-									<td class="cell100 column3">'.$row["last_name"].'</td>
+									<td class="cell100 column3">'.$row["last_name"].'</td>	
 									<td class="cell100 column4">'.$row["email"].'</td>
 									<td class="cell100 column5">'.$row["phn_number"].'</td>
-									<td class="cell100 column6">'.$row["cin"].'</td>
-									<td class="cell100 column7">'.$row["cout"].'</td>
-									<td class="cell100 column8">'.$row["adult"].'</td>
-									<td class="cell100 column9">'.$row["children"].'</td>
-									<td class="cell100 column10">'.$row["type"].'</td>
-									<td class="cell100 column11">'.$row["bedding"].'</td>
-									
+									<td class="cell100 column7"><a href=delect_guest_account.php?id='.$row['NID'].'>Delect</a></td>
 								</tr>
 
 								

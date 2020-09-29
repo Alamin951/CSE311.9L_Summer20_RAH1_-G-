@@ -4,7 +4,6 @@ require "connection.php";
 if (isset($_POST["g_id"])) {
 
  $room=$_POST["Room"];
- $bed=$_POST["bedding"];
  $gid=$_POST["g_id"];
  $rdate=$_POST["rdate"];
  $cindate=$_POST["c_in"];
@@ -12,8 +11,8 @@ if (isset($_POST["g_id"])) {
  $adult=$_POST["adult"];
  $children=$_POST["children"];
 
- $query = mysqli_query($conn,"INSERT INTO roombook(guest_id,TRoom,bedding,rdate,cin,cout,adult,children)
-         VALUES ('$gid','$room','$bed','$rdate','$cindate','$coutdate','$adult','$children')");
+ $query = mysqli_query($conn,"INSERT INTO roombook(guest_id,rdate,cin,cout,adult,children,room_type_id)
+         VALUES ('$gid','$rdate','$cindate','$coutdate','$adult','$children','$room')");
 
  if($query)
    {
