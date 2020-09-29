@@ -43,7 +43,8 @@ if($count===1){
 	else{
 		 $query_8 = mysqli_query($conn,"INSERT INTO payment(guest_id,nroom,payment_day,room_mrp,Amount)
          VALUES ('$gid','$nroom','$pdate',NUll,'$price') ");
-		 if($query_8){
+         $query_9 = mysqli_query($conn,"UPDATE room_num SET cusid='$gid' WHERE id='$rid'");
+		 if($query_8 and $query_9){
 		 	echo "success";
 		 }else{
 		 	echo "failed";
