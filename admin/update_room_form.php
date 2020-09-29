@@ -10,21 +10,19 @@
 
 <div class="wrapper">
     <div class="title">
-      ..Add Room Form..
-             <?php
-       require "connection.php";
-       $query="SELECT MAX(id) as m FROM room_num";
-      $result = mysqli_query($conn,$query);
-      $row=mysqli_fetch_assoc($result);
-       echo '<br><label>NOTE: '.$row['m'].' is the last room number</label>';
-       ?> 
+      ..Update Room Type Form..
     </div>
   <div class="form">
-    <form action="add_room_insert.php" method="post">
-       <div class="inputfield">
-          <label>New Room Number</label>
-          <input type="Number" name="r_id" class="input" placeholder="Enter your New Room Number" required="">
-       </div> 
+    <?php
+    require "connection.php";
+
+    $id=$_GET['id'];
+    $result= "SELECT * FROM room_num WHERE id='$id'";
+    $query=mysqli_query($conn,$result);
+    $row=mysqli_fetch_assoc($query);
+    ?>
+    <form action="Update_room_type.php?id=<?= $row['id'];?>" method="post">
+
       
        <div class="inputfield">
           <label>Add New Room Type</label>

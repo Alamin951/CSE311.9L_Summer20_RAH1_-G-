@@ -25,7 +25,7 @@
 	<div class="container">
 	<h2 class="display-3">Filterable Table</h2>
 	<hr>
-  <p class="lead">Type something in the input field to search the table for first names, last names or emails:</p><br> </di>
+  <p class="lead">Enter The Room Number To See the Details:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
 	<div class="limiter">
@@ -40,6 +40,9 @@
 									<th class="cell100 column2">Type</th>
 									<th class="cell100 column3">Bedding</th>
 									<th class="cell100 column4">Price</th>
+									<th class="cell100 column5">Update</th>
+									<th class="cell100 column5">Delect</th>
+									
 
 								</tr>
 							</thead>
@@ -47,7 +50,9 @@
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT * FROM room";
+                    $result= "SELECT rn.id,r.type,r.bedding,r.price 
+                              FROM room_num AS rn, room AS r
+                              WHERE r.id=rn.t_id";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
@@ -57,7 +62,9 @@
 									<td class="cell100 column1">'.$row["id"].'</td>
 									<td class="cell100 column2">'.$row["type"].'</td>
 									<td class="cell100 column3">'.$row["bedding"].'</td>	
-									<td class="cell100 column4">'.$row["price"].'</td>		
+									<td class="cell100 column4">'.$row["price"].'</td>
+									<td class="cell100 column5"><a href=admin/update_room_form.php?id='.$row['id'].'>update</a></td>
+									<td class="cell100 column6"><a href=admin/delect_room.php?id='.$row['id'].'>Delect</a></td>
 								</tr>
 
 								
