@@ -47,8 +47,9 @@
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT id,type,bedding,price
-                              FROM room WHERE cusid IS null";
+                    $result= "SELECT rn.id,r.type,r.bedding,r.price
+                              FROM room_num AS rn, room AS r
+                              WHERE rn.t_id=r.id AND rn.cusid IS null";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
