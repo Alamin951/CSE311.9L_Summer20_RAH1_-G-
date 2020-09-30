@@ -13,24 +13,35 @@
       Reservation Form
     </div>
   <div class="form">
+    <?php
+    $FullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if (strpos($FullUrl,"empty")== true)
+    {
+      echo "<p><h4> <i>You did not fill in all Forms! </i></h4></p><br>";
+    }
+    elseif (strpos($FullUrl,"invalid_username")== true)
+    {
+      echo "<p> <h4><i>You do not have a account! Please Sign up </i></h4></p><br>";
+    }
+    ?>
     <form action="reservation_insert.php" method="post">
-               <div class="inputfield">
-          <label>Room Type</label>
+       <div class="inputfield">
+          <label>Room</label>
           <select name="Room">
             <option value="">--Select--</option>
-            <option value=1>Luxury_Single</option>
-            <option value=2>Luxury_Double</option>
-            <option value=3>Luxury_Triple</option>
-            <option value=4>Luxury_Quad</option>
-            <option value=5>Deluxe_Single</option>
-            <option value=6>Deluxe_Double</option>
-            <option value=7>Deluxe_Triple</option>
-            <option value=8>Deluxe_Quad</option>
-            <option value=9>Single_Single</option>
-            <option value=10>Single_Double</option>
-            <option value=11>Single_Triple</option>
-            <option value=12>Single_Quad</option>
-
+            <option value="Luxury">Luxury</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Single Room">Single Room</option>
+          </select>
+       </div>
+     <div class="inputfield">
+          <label>Number Of Bedding</label>
+          <select name="bedding">
+            <option value="">--Select--</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Triple">Triple</option>
+            <option value="Quad">Quad</option>
           </select>
        </div> 
        <div class="inputfield">
@@ -67,8 +78,11 @@
           <p>Agreed to terms and conditions</p>
        </div> 
       <div class="inputfield">
-        <input type="submit" value="Register" class="btn">
+        <input type="submit" name="add" value="Register" class="btn">
       </div>
+      <div>
+         <p class="message">Not registered? <a href="../g_signup.php">Create an account</a></p>
+       </div>
     </form>
     </div>
 </div>  

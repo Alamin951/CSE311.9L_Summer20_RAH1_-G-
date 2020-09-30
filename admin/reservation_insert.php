@@ -1,9 +1,10 @@
 <?php
 require "connection.php";
 
-if (isset($_POST["g_id"])) {
+if (isset($_POST["add"])) {
 
  $room=$_POST["Room"];
+ $bed=$_POST["bedding"];
  $gid=$_POST["g_id"];
  $rdate=$_POST["rdate"];
  $cindate=$_POST["c_in"];
@@ -11,13 +12,31 @@ if (isset($_POST["g_id"])) {
  $adult=$_POST["adult"];
  $children=$_POST["children"];
 
- $query = mysqli_query($conn,"INSERT INTO roombook(guest_id,rdate,cin,cout,adult,children,room_type_id)
-         VALUES ('$gid','$rdate','$cindate','$coutdate','$adult','$children','$room')");
+ if (empty($room)|| empty($bed) || empty($gid) || empty($rdate) || empty($cindate)|| empty($coutdate) || empty($adult)) {
+ 	header("Location: reservation.php?empty");
+  }
 
- if($query)
+ else{
+ 	$query_count=mysqli_query($conn,"SELECT * FROM guest_info WHERE NID='$gid'");
+    $count=mysqli_num_rows($query_count);
+    if($count!=0)
+       {
+       	$query = mysqli_query($conn,"INSERT INTO roombook(guest_id,TRoom,bedding,rdate,cin,cout,adult,children)
+         VALUES ('$gid','$room','$bed','$rdate','$cindate','$coutdate','$adult','$children')");
+       	if($query)
    {
-	   echo "successfully inserted";
+	   header("Location: ../index.php?Sucessfully_insertated");
    }else{
-	   echo "Insertion Failed";
+	   header("Location: reservation.php?insertion_failed");
    }
+       }
+
+     else{
+     	header("Location: reservation.php?invalid_username");
+     }
+
+       
+
+}
+
 }
