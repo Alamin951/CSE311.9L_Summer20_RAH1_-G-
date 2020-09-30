@@ -21,8 +21,19 @@ if (isset($_POST["add"])) {
     $count=mysqli_num_rows($query_count);
     if($count!=0)
        {
-       	$query = mysqli_query($conn,"INSERT INTO roombook(guest_id,TRoom,bedding,rdate,cin,cout,adult,children)
+       	$query = mysqli_query($conn,"INSERT INTO roombook(guest_id,Room,bedding,rdate,cin,cout,adult,children)
          VALUES ('$gid','$room','$bed','$rdate','$cindate','$coutdate','$adult','$children')");
+
+        $result = "SELECT id FROM room WHERE type = $room AND bedding = $bed";
+        $mrp = "SELECT price FROM room WHERE id = $result;";
+        $days = .floor(($coutdate-$cindate)/(60*60*24));
+
+        $sql = "INSERT INTO payment(guest_id,nroom,payment_day,room_mrp,Amount)
+        VALUES ('$gid','$result','$days','$mrp','$days*$mrp')";
+
+        $query2 = mysqli_query($conn,$sql);
+
+
        	if($query)
    {
 	   header("Location: ../index.php?Sucessfully_insertated");

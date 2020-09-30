@@ -57,15 +57,10 @@ CREATE TABLE `payment` (
   `nroom` int(11) DEFAULT NULL,
   `payment_day` date DEFAULT NULL,
   `room_mrp` int(15) DEFAULT NULL,
-  `Amount` int(15) DEFAULT NULL
+  `Amount` int(15) DEFAULT NULL,
+  `Status` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id`, `guest_id`, `nroom`, `payment_day`, `room_mrp`, `Amount`) VALUES
-(28, 123, 2, '2020-09-29', NULL, 24000);
 
 -- --------------------------------------------------------
 
@@ -107,20 +102,14 @@ INSERT INTO `room` (`id`, `type`, `bedding`, `price`) VALUES
 CREATE TABLE `roombook` (
   `id` int(10) NOT NULL,
   `guest_id` int(10) NOT NULL,
+  `Room` varchar(15) DEFAULT NULL,
+  `bedding` varchar(15) DEFAULT NULL,
   `rdate` date DEFAULT NULL,
   `cin` date DEFAULT NULL,
   `cout` date DEFAULT NULL,
   `adult` int(10) DEFAULT NULL,
-  `children` int(10) DEFAULT NULL,
-  `room_type_id` int(6) DEFAULT NULL
+  `children` int(10) DEFAULT NULL  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `roombook`
---
-
-INSERT INTO `roombook` (`id`, `guest_id`, `rdate`, `cin`, `cout`, `adult`, `children`, `room_type_id`) VALUES
-(4, 123, '2020-09-29', '2020-09-30', '2020-10-01', 0, 1, 1);
 
 -- --------------------------------------------------------
 

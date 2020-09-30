@@ -90,19 +90,24 @@
 <!-- Navbar -->
 <nav class="navbar navbar-default">
   <div class="container">
+  <div class="navbar-header">
+    <img src="images/default-user.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="50" height="50">
+    </div>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
+
       <a class="navbar-brand" href="#">'.$row_1["first_name"]." ".$row_1["last_name"].'</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="admin/reservation.php">Reservation Form</a></li>
         <li><a href="availabe_room.php">Room Availabe</a></li>
-        <li><a href="signup.php">Payment Status</a></li>
+        <li><a href="g_payment.php">Booking Status</a></li>
+        <li><a href="g_payment.php">Payment Status</a></li>
         <li><a href="index.php">Log Out</a></li>
       </ul>
     </div>
@@ -112,15 +117,11 @@
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
   <h3 class="margin">Who Am I?</h3>
-  <img src="images/ratul.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>Im Manager of this hotel</h3>
+  <img src="images/default-user.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+  <h3>Im a Guest of this hotel</h3>
 </div>
 
-<!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
-  <h3 class="margin">What Am I?</h3>
-  <p>Hellow, I am Md.Asif Rahman and I am the manger of this hotel </p>
-</div>
+
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">    
