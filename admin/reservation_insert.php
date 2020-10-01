@@ -24,13 +24,21 @@ if (isset($_POST["add"])) {
        	$query = mysqli_query($conn,"INSERT INTO roombook(guest_id,Room,bedding,rdate,cin,cout,adult,children)
          VALUES ('$gid','$room','$bed','$rdate','$cindate','$coutdate','$adult','$children')");
 
-        $result = mysqli_query($conn,"SELECT id FROM room WHERE type = '$room' AND bedding = '$bed'");
-        $result1 = $row[0];
-        $mrp = mysqli_query($conn,"SELECT price FROM room WHERE type = '$room' AND bedding = '$bed'");
-        $days = floor(($utdate-$cindate)/(60*60*24));
+        $result = mysqli_query($conn,"SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'");
+        $row=mysqli_fetch_assoc($result);
+        $result1 = $row['id'];
+        
+        $mrp = $row['price'];
+        
+        $daysquery = "SELECT DATEDIFF('$coutdate','$cindate') as d";
+        $result2 = mysqli_query($conn,$daysquery);
+        $row_2=mysqli_fetch_assoc($result2);
+        $days=$row_2['d'];
+        $total_balane=$mrp*$days;
+      
 
-        $sql = "INSERT INTO payment(guest_id,nroom,num_of_days,room_mrp,Amount)
-        VALUES ('$gid','$result','$days','$mrp','$days*$mrp')";
+        $sql = "INSERT INTO payment(guest_id,nroom,num_of_day,room_mrp,Amount,Status)
+        VALUES ('$gid','$result1','$days','$mrp','$total_balane',NULL)";
 
         $query2 = mysqli_query($conn,$sql);
 

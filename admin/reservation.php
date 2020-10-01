@@ -29,8 +29,8 @@
           <label>Room</label>
           <select name="Room">
             <option value="">--Select--</option>
-            <option value="Luxury">Luxury</option>
-            <option value="Deluxe">Deluxe</option>
+            <option value="Luxury Room">Luxury Room</option>
+            <option value="Deluxe Room">Deluxe Room</option>
             <option value="Single Room">Single Room</option>
           </select>
        </div>

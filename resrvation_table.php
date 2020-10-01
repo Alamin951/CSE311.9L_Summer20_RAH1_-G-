@@ -41,21 +41,21 @@
 									<th class="cell100 column3">Last Name</th>
 									<th class="cell100 column4">Email</th>
 									<th class="cell100 column5">Phn_Number</th>
-									<th class="cell100 column7">C_In</th>
-									<th class="cell100 column8">C_Out</th>
-									<th class="cell100 column9">Adult</th>
-									<th class="cell100 column10">Children</th>
-									<th class="cell100 column10">Type</th>
-									<th class="cell100 column10">Bedding</th>
+									<th class="cell100 column6">Adult</th>
+									<th class="cell100 column7">Children</th>
+									<th class="cell100 column8">Room</th>
+									<th class="cell100 column9">Bedding</th>
+									<th class="cell100 column10">C_In</th>
+									<th class="cell100 column11">C_Out</th>
 								</tr>
 							</thead>
 						</table>
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT rb.guest_id,g.first_name,g.last_name,g.email,g.phn_number,rb.cin,rb.cout,rb.adult,rb.children,r.type,r.bedding
-FROM roombook AS rb, guest_info AS g, room as r
-WHERE rb.guest_id=g.NID AND r.id=rb.room_type_id";
+                    $result= "SELECT *
+                              FROM roombook as rb, guest_info as g
+                              WHERE rb.guest_id=g.NID";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
@@ -67,12 +67,14 @@ WHERE rb.guest_id=g.NID AND r.id=rb.room_type_id";
 									<td class="cell100 column3">'.$row["last_name"].'</td>
 									<td class="cell100 column4">'.$row["email"].'</td>
 									<td class="cell100 column5">'.$row["phn_number"].'</td>
-									<td class="cell100 column6">'.$row["cin"].'</td>
-									<td class="cell100 column7">'.$row["cout"].'</td>
-									<td class="cell100 column8">'.$row["adult"].'</td>
-									<td class="cell100 column9">'.$row["children"].'</td>
-									<td class="cell100 column10">'.$row["type"].'</td>
-									<td class="cell100 column11">'.$row["bedding"].'</td>
+									<td class="cell100 column6">'.$row["adult"].'</td>
+									<td class="cell100 column7">'.$row["children"].'</td>
+									<td class="cell100 column8">'.$row["Room"].'</td>
+									<td class="cell100 column9">'.$row["bedding"].'</td>
+									<td class="cell100 column10">'.$row["cin"].'</td>
+									<td class="cell100 column11">'.$row["cout"].'</td>
+
+
 									
 								</tr>
 
