@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2020 at 07:09 PM
+-- Generation Time: Oct 01, 2020 at 12:58 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -55,12 +55,18 @@ CREATE TABLE `payment` (
   `id` int(11) NOT NULL,
   `guest_id` int(10) DEFAULT NULL,
   `nroom` int(11) DEFAULT NULL,
-  `payment_day` date DEFAULT NULL,
+  `num_of_day` int(11) DEFAULT NULL,
   `room_mrp` int(15) DEFAULT NULL,
   `Amount` int(15) DEFAULT NULL,
   `Status` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `guest_id`, `nroom`, `num_of_day`, `room_mrp`, `Amount`, `Status`) VALUES
+(32, 123, 2, 2, 11000, 22000, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,8 +114,15 @@ CREATE TABLE `roombook` (
   `cin` date DEFAULT NULL,
   `cout` date DEFAULT NULL,
   `adult` int(10) DEFAULT NULL,
-  `children` int(10) DEFAULT NULL  
+  `children` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roombook`
+--
+
+INSERT INTO `roombook` (`id`, `guest_id`, `Room`, `bedding`, `rdate`, `cin`, `cout`, `adult`, `children`) VALUES
+(16, 123, 'Luxury Room', 'Double', '2020-10-01', '2020-10-02', '2020-10-04', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -224,13 +237,13 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
