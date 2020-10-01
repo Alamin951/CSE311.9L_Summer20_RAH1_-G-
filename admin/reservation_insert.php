@@ -19,17 +19,17 @@ if (isset($_POST["add"])) {
  else{
  	$query_count=mysqli_query($conn,"SELECT * FROM guest_info WHERE NID='$gid'");
     $count=mysqli_num_rows($query_count);
-    echo $count;
     if($count!=0)
        {
        	$query = mysqli_query($conn,"INSERT INTO roombook(guest_id,Room,bedding,rdate,cin,cout,adult,children)
          VALUES ('$gid','$room','$bed','$rdate','$cindate','$coutdate','$adult','$children')");
 
-        $result = "SELECT id FROM room WHERE type = $room AND bedding = $bed";
-        $mrp = "SELECT price FROM room WHERE id = $result;";
-        $days = floor(($coutdate-$cindate)/(60*60*24));
+        $result = mysqli_query($conn,"SELECT id FROM room WHERE type = '$room' AND bedding = '$bed'");
+        $result1 = $row[0];
+        $mrp = mysqli_query($conn,"SELECT price FROM room WHERE type = '$room' AND bedding = '$bed'");
+        $days = floor(($utdate-$cindate)/(60*60*24));
 
-        $sql = "INSERT INTO payment(guest_id,nroom,payment_day,room_mrp,Amount)
+        $sql = "INSERT INTO payment(guest_id,nroom,num_of_days,room_mrp,Amount)
         VALUES ('$gid','$result','$days','$mrp','$days*$mrp')";
 
         $query2 = mysqli_query($conn,$sql);
