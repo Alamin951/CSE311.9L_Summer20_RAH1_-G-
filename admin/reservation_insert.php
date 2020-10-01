@@ -38,7 +38,7 @@ if (isset($_POST["add"])) {
       
 
         $sql = "INSERT INTO payment(guest_id,nroom,num_of_day,room_mrp,Amount,Status)
-        VALUES ('$gid','$result1','$days','$mrp','$total_balane',NULL)";
+        VALUES ('$gid','$result1','$days','$mrp','$total_balane',2)";
 
         $query2 = mysqli_query($conn,$sql);
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2020 at 12:58 PM
+-- Generation Time: Oct 01, 2020 at 05:23 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -58,7 +58,7 @@ CREATE TABLE `payment` (
   `num_of_day` int(11) DEFAULT NULL,
   `room_mrp` int(15) DEFAULT NULL,
   `Amount` int(15) DEFAULT NULL,
-  `Status` varchar(15) DEFAULT NULL
+  `Status` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -66,7 +66,29 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `guest_id`, `nroom`, `num_of_day`, `room_mrp`, `Amount`, `Status`) VALUES
-(32, 123, 2, 2, 11000, 22000, NULL);
+(32, 123, 2, 2, 11000, 22000, 2),
+(33, 124, 5, 3, 5000, 15000, 1),
+(34, 123, 9, 1, 2500, 2500, 2),
+(35, 124, 1, 1, 10000, 10000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pay_status`
+--
+
+CREATE TABLE `pay_status` (
+  `id` int(1) NOT NULL,
+  `p_status` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pay_status`
+--
+
+INSERT INTO `pay_status` (`id`, `p_status`) VALUES
+(1, 'Done'),
+(2, 'Not Done');
 
 -- --------------------------------------------------------
 
@@ -122,7 +144,10 @@ CREATE TABLE `roombook` (
 --
 
 INSERT INTO `roombook` (`id`, `guest_id`, `Room`, `bedding`, `rdate`, `cin`, `cout`, `adult`, `children`) VALUES
-(16, 123, 'Luxury Room', 'Double', '2020-10-01', '2020-10-02', '2020-10-04', 2, 1);
+(16, 123, 'Luxury Room', 'Double', '2020-10-01', '2020-10-02', '2020-10-04', 2, 1),
+(17, 124, 'Deluxe Room', 'Single', '2020-10-01', '2020-10-02', '2020-10-05', 2, 1),
+(18, 123, 'Single Room', 'Single', '2020-10-08', '2020-10-09', '2020-10-10', 2, 1),
+(19, 124, 'Luxury Room', 'Single', '2020-10-08', '2020-10-09', '2020-10-10', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -142,7 +167,10 @@ CREATE TABLE `room_num` (
 
 INSERT INTO `room_num` (`id`, `t_id`, `cusid`) VALUES
 (101, 4, 123),
-(102, 3, NULL);
+(102, 3, NULL),
+(103, 5, NULL),
+(104, 8, NULL),
+(105, 1, 124);
 
 -- --------------------------------------------------------
 
@@ -198,6 +226,12 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pay_status`
+--
+ALTER TABLE `pay_status`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `room`
 --
 ALTER TABLE `room`
@@ -237,13 +271,13 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

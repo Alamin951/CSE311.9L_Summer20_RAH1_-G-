@@ -10,7 +10,7 @@
 
 <div class="wrapper">
     <div class="title">
-      Reservation Form
+      Room Booking Form
     </div>
   <div class="form">
 
@@ -27,16 +27,12 @@
        <div class="inputfield">
           <label>Guest ID</label>
           <input type="text" name="g_id" class="input" placeholder="Enter your Guest ID">
+       </div>
+      <div class="inputfield">
+          <label>Reservation Date</label>
+          <input type="date" name="r_d" class="input">
        </div> 
       
-      <div class="inputfield">
-          <label>Payment Date</label>
-       <input type="date" class="input" name="pdate">
-       </div>
-              <div class="inputfield">
-          <label>Number of room</label>
-          <input type="number" name="n_r" class="input" placeholder="enter the number of rooms">
-       </div> 
       <div class="inputfield terms">
           <label class="check">
             <input type="checkbox">
