@@ -26,6 +26,14 @@
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
 					<input class="text w3lpass" type="password" name="cpassword" placeholder="Confirm Password" required="">
+					       <div class="inputfield">
+                            <select name="choice" required="">
+                            <option value="">--Select--</option>
+                            <option value=1>What is best childhood friend name?</option>
+                            <option value=2>What is your favourite place?</option>
+                            </select>
+                        </div>
+                        <br><input class="text" type="text" name="ans" placeholder="write your answer" required=""><br>
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">

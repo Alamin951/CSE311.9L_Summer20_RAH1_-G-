@@ -21,6 +21,7 @@
       <input type="password" name="password" placeholder="password" required="" />
       <button action="after_log.php">login</button>
       <p class="message">Not registered? <a href="g_signup.php">Create an account</a></p>
+      <p class="message">forget password? <a href="g_forget_pass_form.php">change it</a></p>
     </form>
 
   </div>
