@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div class="container">
-	<h2 class="display-3">Filterable Table</h2>
+	<h2 class="display-3">Payment Status</h2>
 	<hr>
   <p class="lead">Enter The Room Number To See the Details:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
@@ -36,12 +36,17 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Type</th>
-									<th class="cell100 column2">Bedding</th>
-									<th class="cell100 column3">Reservation date</th>
-									<th class="cell100 column4">Number of days </th>
-									<th class="cell100 column5">Amount </th>
-									<th class="cell100 column6">Status</th>
+									<th class="cell100 column1">Id</th>
+									<th class="cell100 column2">F_name</th>
+									<th class="cell100 column3">L_name</th>
+									<th class="cell100 column4">Phone</th>
+									<th class="cell100 column5">Type</th>
+									<th class="cell100 column6">Bedding</th>
+									<th class="cell100 column7">Stays</th>
+									<th class="cell100 column8">MRP</th>
+									<th class="cell100 column9">Amount</th>
+									<th class="cell100 column10">Pay</th>
+									
 									
 
 								</tr>
@@ -51,22 +56,27 @@
 					<?php
                     require "connection.php";
                     $id=$_GET['g_id'];
-                    $result= "SELECT r.Room,r.bedding,r.rdate,p.num_of_day,p.Amount, ps.p_ststus  
-                              FROM roombook AS r , paymentHide AS p , pay_status AS ps
-                              WHERE r.guest_id='$id' AND (r.guest_id =p.guest_id OR p.id = ps.id) ";
+                    $result= "SELECT g.NID,g.first_name,g.last_name,g.phn_number,r.type,r.bedding,p.num_of_day,p.room_mrp,
+                              p.Amount,s.p_status
+                              FROM payment AS p, guest_info as g, pay_status AS s, room AS r
+                              WHERE g.NID=p.guest_id AND p.Status=s.id AND r.id=p.nroom AND p.guest_id='$id' ";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
 						<table>
 							<tbody id="myTable">
 								<tr class="row100 body">
-									<td class="cell100 column1">'.$row["Room"].'</td>
-									<td class="cell100 column2">'.$row["bedding"].'</td>
-									<td class="cell100 column3">'.$row["rdate"].'</td>	
-									<td class="cell100 column4">'.$row["num_of_day"].'</td>
-									<td class="cell100 column5">'.$row["Amount"].'</td>
-									<td class="cell100 column6">'.$row["p_ststus"].'</td>
-									<td class="cell100 column7"><a href=pay_now.php?id='.$row['guest_id'].'>Pay</a></td>
+									<td class="cell100 column1">'.$row["NID"].'</td>
+									<td class="cell100 column2">'.$row["first_name"].'</td>
+									<td class="cell100 column3">'.$row["last_name"].'</td>	
+									<td class="cell100 column4">'.$row["phn_number"].'</td>
+									<td class="cell100 column5">'.$row["type"].'</td>
+									<td class="cell100 column6">'.$row["bedding"].'</td>
+									<td class="cell100 column7">'.$row["num_of_day"].'</td>
+									<td class="cell100 column8">'.$row["room_mrp"].'</td>
+									<td class="cell100 column9">'.$row["Amount"].'</td>
+									<td class="cell100 column10">'.$row["p_status"].'</td>
+									
 								</tr>
 
 								

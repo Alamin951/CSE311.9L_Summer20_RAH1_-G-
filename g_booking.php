@@ -23,9 +23,9 @@
 </head>
 <body>
 	<div class="container">
-	<h2 class="display-3">Filterable Table</h2>
+	<h2 class="display-3">Reservation list</h2>
 	<hr>
-  <p class="lead">Enter The Room Number To See the Details:</p><br> </di>
+  <p class="lead">Search The reservation date:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
 	<div class="limiter">
@@ -36,15 +36,14 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Type</th>
+									<th class="cell100 column1">Room</th>
 									<th class="cell100 column2">Bedding</th>
 									<th class="cell100 column3">Reservation date</th>
 									<th class="cell100 column4">Cheak in </th>
 									<th class="cell100 column5">Cheak out </th>
 									<th class="cell100 column6">Adult</th>
 									<th class="cell100 column7">Child</th>
-									<th class="cell100 column8">Update</th>
-									<th class="cell100 column9">Delect</th>
+								
 									
 
 								</tr>
@@ -54,9 +53,9 @@
 					<?php
                     require "connection.php";
                     $id=$_GET['g_id'];
-                    $result= "SELECT r.Room,r.bedding,r.rdate,r.cin,r.cout,r.adult,r.children 
-                              FROM roombook AS r
-                              WHERE r.id='$id'";
+                    $result= "SELECT r.id,r.Room,r.bedding,r.rdate,r.cin,r.cout,r.adult,r.children 
+                              FROM roombook AS r, guest_info AS g
+                              WHERE g.NID=r.guest_id AND r.guest_id='$id'";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
@@ -64,14 +63,13 @@
 							<tbody id="myTable">
 								<tr class="row100 body">
 									<td class="cell100 column1">'.$row["Room"].'</td>
-									<td class="cell100 column2">'.$row["bedding"].'</td>
-									<td class="cell100 column3">'.$row["rdate"].'</td>	
+									<td class="cell100 column2">'.$row["bedding"].'</td>	
+									<td class="cell100 column3">'.$row["rdate"].'</td>
 									<td class="cell100 column4">'.$row["cin"].'</td>
 									<td class="cell100 column5">'.$row["cout"].'</td>
 									<td class="cell100 column6">'.$row["adult"].'</td>
 									<td class="cell100 column7">'.$row["children"].'</td>
-									<td class="cell100 column8"><a href=g_booking_update.php?id='.$row['id'].'>update</a></td>
-									<td class="cell100 column9"><a href=g_booking_delete.php?id='.$row['id'].'>Delect</a></td>
+							
 								</tr>
 
 								

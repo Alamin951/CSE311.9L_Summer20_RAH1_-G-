@@ -27,7 +27,8 @@ if (isset($_POST["add"])) {
         $result = mysqli_query($conn,"SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'");
         $row=mysqli_fetch_assoc($result);
         $result1 = $row['id'];
-        
+
+
         $mrp = $row['price'];
         
         $daysquery = "SELECT DATEDIFF('$coutdate','$cindate') as d";
