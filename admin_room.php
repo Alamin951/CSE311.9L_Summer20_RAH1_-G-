@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div class="container">
-	<h2 class="display-3">Filterable Table</h2>
+	<h2 class="display-3">Hotel Rooms</h2>
 	<hr>
   <p class="lead">Enter The Room Number To See the Details:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">

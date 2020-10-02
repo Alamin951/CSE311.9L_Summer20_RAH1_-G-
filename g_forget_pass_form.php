@@ -45,7 +45,7 @@
          <label>Answer</label>
       <select name="choice" required="">
       <option value="">--Select--</option>
-      <option value=1>What is best childhood friend name?</option>
+      <option value=1>Who is your best childhood friend?</option>
       <option value=2>What is your favourite place?</option>
       </select>
       </div>
@@ -74,9 +74,7 @@
       <div class="inputfield">
         <input type="submit" name="add" value="Register" class="btn">
       </div>
-      <div>
-         <p class="message">Not registered? <a href="../g_signup.php">Create an account</a></p>
-       </div>
+
     </form>
     </div>
 </div>  

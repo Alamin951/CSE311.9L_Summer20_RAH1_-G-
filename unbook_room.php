@@ -23,7 +23,7 @@
 </head>
 <body>
 	<div class="container">
-	<h2 class="display-3 lead">Available Room</h2>
+	<h2 class="display-3 lead">Booked Room</h2>
 	<hr>
   <p class="lead">Type the room type to search that are availabe or not:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">

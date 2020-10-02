@@ -28,8 +28,8 @@
 					<input class="text w3lpass" type="password" name="cpassword" placeholder="Confirm Password" required="">
 					       <div class="inputfield">
                             <select name="choice" required="">
-                            <option value="">--Select--</option>
-                            <option value=1>What is best childhood friend name?</option>
+                            <option value="">--Question--</option>
+                            <option value=1>Who is your best childhood friend?</option>
                             <option value=2>What is your favourite place?</option>
                             </select>
                         </div>

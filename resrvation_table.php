@@ -23,9 +23,9 @@
 </head>
 <body>
 	<div class="container">
-	<h2 class="display-3">Filterable Table</h2>
+	<h2 class="display-3">Reservation List</h2>
 	<hr>
-  <p class="lead">Type something in the input field to search the table for first names, last names or emails:</p><br> </di>
+  <p class="lead">Search Reservation by guest id:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
 	<div class="limiter">
