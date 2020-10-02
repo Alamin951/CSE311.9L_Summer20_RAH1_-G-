@@ -7,8 +7,7 @@ require "connection.php";
 
 
 
-    $result= "UPDATE room_num SET
-             t_id='$type' where id='$id'";
+    $result= "UPDATE pay_status SET p_status ='Done' where id='$id'";
     $query=mysqli_query($conn,$result);
 
     if($query){

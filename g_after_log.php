@@ -107,7 +107,7 @@
         <li><a href="admin/reservation.php">Reservation Form</a></li>
         <li><a href="availabe_room.php">Room Availabe</a></li>
         <li><a href="g_booking.php?g_id='.$id.'">Booking Status</a></li>
-        <li><a href="g_payment.php">Payment Status</a></li>
+        <li><a href="g_payment.php?g_id='.$id.'">Payment Status</a></li>
         <li><a href="index.php">Log Out</a></li>
       </ul>
     </div>
