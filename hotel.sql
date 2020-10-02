@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2020 at 05:23 PM
+-- Generation Time: Oct 02, 2020 at 03:41 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -34,16 +34,19 @@ CREATE TABLE `guest_info` (
   `email` varchar(25) NOT NULL,
   `phn_number` varchar(11) NOT NULL,
   `pass` varchar(15) DEFAULT NULL,
-  `conf_pass` varchar(15) DEFAULT NULL
+  `conf_pass` varchar(15) DEFAULT NULL,
+  `choice` int(6) DEFAULT NULL,
+  `c_ans` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `guest_info`
 --
 
-INSERT INTO `guest_info` (`NID`, `first_name`, `last_name`, `email`, `phn_number`, `pass`, `conf_pass`) VALUES
-('123', 'Micro', 'Bots', 'microbots@email.com', '01777076628', 'st47YEBwYQMDM', 'st47YEBwYQMDM'),
-('124', 'm', 'Rahman', 'm_rahman@email.com', '01711703098', 'stETX4M7te3.g', 'stETX4M7te3.g');
+INSERT INTO `guest_info` (`NID`, `first_name`, `last_name`, `email`, `phn_number`, `pass`, `conf_pass`, `choice`, `c_ans`) VALUES
+('123', 'Micro', 'Bots', 'microbots@email.com', '01777076628', 'st47YEBwYQMDM', 'st47YEBwYQMDM', 2, 'sweden'),
+('124', 'm', 'Rahman', 'm_rahman@email.com', '01711703098', 'stETX4M7te3.g', 'stETX4M7te3.g', 1, 'rck'),
+('125', 'R', 'maick', 'rm@email.com', '01777076625', 'sttsve.aO6LvA', 'sttsve.aO6LvA', 1, 'nova');
 
 -- --------------------------------------------------------
 
@@ -69,7 +72,12 @@ INSERT INTO `payment` (`id`, `guest_id`, `nroom`, `num_of_day`, `room_mrp`, `Amo
 (32, 123, 2, 2, 11000, 22000, 2),
 (33, 124, 5, 3, 5000, 15000, 1),
 (34, 123, 9, 1, 2500, 2500, 2),
-(35, 124, 1, 1, 10000, 10000, 1);
+(35, 124, 1, 1, 10000, 10000, 1),
+(36, 124, 6, 1, 6000, 6000, 1),
+(37, 124, 4, 1, 12000, 12000, 2),
+(38, 124, 3, 2, 11500, 23000, 1),
+(39, 123, 9, 1, 2500, 2500, 2),
+(40, 124, 1, 2, 10000, 20000, 1);
 
 -- --------------------------------------------------------
 
@@ -144,10 +152,17 @@ CREATE TABLE `roombook` (
 --
 
 INSERT INTO `roombook` (`id`, `guest_id`, `Room`, `bedding`, `rdate`, `cin`, `cout`, `adult`, `children`) VALUES
-(16, 123, 'Luxury Room', 'Double', '2020-10-01', '2020-10-02', '2020-10-04', 2, 1),
+(16, 123, 'Luxury Room', 'Double', '2020-10-03', '2020-10-03', '2020-10-04', 2, 1),
 (17, 124, 'Deluxe Room', 'Single', '2020-10-01', '2020-10-02', '2020-10-05', 2, 1),
 (18, 123, 'Single Room', 'Single', '2020-10-08', '2020-10-09', '2020-10-10', 2, 1),
-(19, 124, 'Luxury Room', 'Single', '2020-10-08', '2020-10-09', '2020-10-10', 2, 1);
+(19, 124, 'Luxury Room', 'Single', '2020-10-08', '2020-10-09', '2020-10-10', 2, 1),
+(20, 123, 'Luxury Room', 'Single', '2020-10-10', '2020-10-11', '2020-10-13', 2, 1),
+(21, 123, 'Deluxe Room', 'Double', '2020-10-15', '2020-10-16', '2020-10-17', 2, 1),
+(22, 124, 'Deluxe Room', 'Double', '2020-10-15', '2020-10-16', '2020-10-17', 2, 1),
+(23, 124, 'Luxury Room', 'Quad', '2020-10-16', '2020-10-17', '2020-10-18', 2, 1),
+(24, 124, 'Luxury Room', 'Triple', '2020-10-16', '2020-10-17', '2020-10-19', 2, 1),
+(25, 123, 'Single Room', 'Single', '2020-10-24', '2020-10-25', '2020-10-26', 2, 1),
+(26, 124, 'Luxury Room', 'Single', '2020-10-16', '2020-10-17', '2020-10-19', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -169,7 +184,7 @@ INSERT INTO `room_num` (`id`, `t_id`, `cusid`) VALUES
 (101, 4, 123),
 (102, 3, NULL),
 (103, 5, NULL),
-(104, 8, NULL),
+(104, 8, 124),
 (105, 1, 124);
 
 -- --------------------------------------------------------
@@ -271,13 +286,13 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
