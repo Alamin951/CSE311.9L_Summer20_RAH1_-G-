@@ -65,7 +65,8 @@
 									<td class="cell100 column4">'.$row["NID"].'</td>
 									<td class="cell100 column5">'.$row["first_name"].'</td>
                                     <td class="cell100 column6">'.$row["phn_number"].'</td>
-									<td class="cell100 column7"><a href=unbook_operation.php?id='.$row['id'].'>unbook</a></td>		
+									<td class="cell100 column7"><a href=unbook_operation.php?id='.$row['id'].'>unbook</a></td>	
+										
 								</tr>
 
 								
