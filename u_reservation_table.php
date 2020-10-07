@@ -47,6 +47,7 @@
 									<th class="cell100 column9">Bedding</th>
 									<th class="cell100 column10">C_In</th>
 									<th class="cell100 column11">C_Out</th>
+
 								</tr>
 							</thead>
 						</table>
@@ -55,7 +56,7 @@
                     require "connection.php";
                     $result= "SELECT *
                               FROM roombook as rb, guest_info as g
-                              WHERE rb.guest_id=g.NID and rb.rdate is not NULL";
+                              WHERE rb.guest_id=g.NID and rb.rdate is NULL";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
@@ -73,6 +74,7 @@
 									<td class="cell100 column9">'.$row["bedding"].'</td>
 									<td class="cell100 column10">'.$row["cin"].'</td>
 									<td class="cell100 column11">'.$row["cout"].'</td>
+									
 
 
 									
@@ -89,6 +91,7 @@
 
 
 									</div>
+
 				</div>
 			</div>
 		</div>

@@ -110,12 +110,14 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="resrvation_table.php">Reservation</a></li>
+        <li><a href="u_reservation_table.php">Unreservation</a></li>
         <li><a href="resv_delect_table.php">Resv_delect</a></li>
         <li><a href="admin_room.php">Room</a></li>
         <li><a href="admin/add_room_form.php">Add Room</a></li>
         <li><a href="signup.php">Add Employee</a></li>
         <li><a href="guest_account_list.php">Guest Account</a></li>
         <li><a href="book_room.php">Book</a></li>
+        <li><a href="unreserver_book_room.php">Ursv_Book</a></li>
         <li><a href="unbook_room.php">Unbook</a></li>
         <li><a href="index.php">Log Out</a></li>
       </ul>

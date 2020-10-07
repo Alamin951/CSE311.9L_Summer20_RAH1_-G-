@@ -23,9 +23,9 @@
 </head>
 <body>
 	<div class="container">
-	<h2 class="display-3">Reservation List</h2>
+	<h2 class="display-3 lead">Available Room for Unreserver</h2>
 	<hr>
-  <p class="lead">Search Reservation by guest id:</p><br> </di>
+  <p class="lead">Type the room type to search that are availabe or not:</p><br> </di>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
 	<div class="limiter">
@@ -36,46 +36,32 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Guest Id</th>
-									<th class="cell100 column2">First Name</th>
-									<th class="cell100 column3">Last Name</th>
-									<th class="cell100 column4">Email</th>
-									<th class="cell100 column5">Phn_Number</th>
-									<th class="cell100 column6">Adult</th>
-									<th class="cell100 column7">Children</th>
-									<th class="cell100 column8">Room</th>
-									<th class="cell100 column9">Bedding</th>
-									<th class="cell100 column10">C_In</th>
-									<th class="cell100 column11">C_Out</th>
+									<th class="cell100 column1">Room Number</th>
+									<th class="cell100 column2">Type</th>
+									<th class="cell100 column3">Bedding</th>
+									<th class="cell100 column4">Price</th>
+									<th class="cell100 column4">Booking</th>
+
 								</tr>
 							</thead>
 						</table>
 					</div>
 					<?php
                     require "connection.php";
-                    $result= "SELECT *
-                              FROM roombook as rb, guest_info as g
-                              WHERE rb.guest_id=g.NID and rb.rdate is not NULL";
+                    $result= "SELECT rn.id,r.type,r.bedding,r.price
+                              FROM room_num AS rn, room AS r
+                              WHERE rn.t_id=r.id AND rn.cusid IS null";
                     $query= mysqli_query($conn,$result);
                     while($row=mysqli_fetch_assoc($query)){
                     echo '<div class="table100-body js-pscroll">
 						<table>
 							<tbody id="myTable">
 								<tr class="row100 body">
-									<td class="cell100 column1">'.$row["guest_id"].'</td>
-									<td class="cell100 column2">'.$row["first_name"].'</td>
-									<td class="cell100 column3">'.$row["last_name"].'</td>
-									<td class="cell100 column4">'.$row["email"].'</td>
-									<td class="cell100 column5">'.$row["phn_number"].'</td>
-									<td class="cell100 column6">'.$row["adult"].'</td>
-									<td class="cell100 column7">'.$row["children"].'</td>
-									<td class="cell100 column8">'.$row["Room"].'</td>
-									<td class="cell100 column9">'.$row["bedding"].'</td>
-									<td class="cell100 column10">'.$row["cin"].'</td>
-									<td class="cell100 column11">'.$row["cout"].'</td>
-
-
-									
+									<td class="cell100 column1">'.$row["id"].'</td>
+									<td class="cell100 column2">'.$row["type"].'</td>
+									<td class="cell100 column3">'.$row["bedding"].'</td>	
+									<td class="cell100 column4">'.$row["price"].'</td>
+									<td class="cell100 column5"><a href=admin/booking_room_unreserver_form.php?id='.$row['id'].'>Booking</a></td>		
 								</tr>
 
 								
@@ -89,6 +75,7 @@
 
 
 									</div>
+
 				</div>
 			</div>
 		</div>
