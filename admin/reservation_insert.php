@@ -23,6 +23,10 @@ if (isset($_POST["add"])) {
        {
        	$query = mysqli_query($conn,"INSERT INTO roombook(guest_id,Room,bedding,rdate,cin,cout,adult,children)
          VALUES ('$gid','$room','$bed','$rdate','$cindate','$coutdate','$adult','$children')");
+        $query41= mysqli_query($conn,"SELECT max(id) as i FROM roombook WHERE guest_id='$gid' and rdate='$rdate'");
+        $row41=mysqli_fetch_assoc($query41);
+        $rsv_id=$row41['i'];
+
 
         $result = mysqli_query($conn,"SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'");
         $row=mysqli_fetch_assoc($result);
@@ -38,8 +42,8 @@ if (isset($_POST["add"])) {
         $total_balane=$mrp*$days;
       
 
-        $sql = "INSERT INTO payment(guest_id,nroom,num_of_day,room_mrp,Amount,Status)
-        VALUES ('$gid','$result1','$days','$mrp','$total_balane',2)";
+        $sql = "INSERT INTO payment(guest_id,nroom,num_of_day,room_mrp,Amount,Status,rsv_id)
+        VALUES ('$gid','$result1','$days','$mrp','$total_balane',2,'$rsv_id')";
 
         $query2 = mysqli_query($conn,$sql);
 

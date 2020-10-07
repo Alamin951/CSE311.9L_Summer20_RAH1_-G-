@@ -110,6 +110,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="resrvation_table.php">Reservation</a></li>
+        <li><a href="resv_delect_table.php">Resv_delect</a></li>
         <li><a href="admin_room.php">Room</a></li>
         <li><a href="admin/add_room_form.php">Add Room</a></li>
         <li><a href="signup.php">Add Employee</a></li>

@@ -51,7 +51,7 @@
       
       <div class="inputfield">
           <label>Reservation Date</label>
-       <input type="datetime-local" class="input" name="rdate">
+       <input type="date" class="input" name="rdate">
        </div>
        <div class="inputfield">
           <label>Check In Date</label>
