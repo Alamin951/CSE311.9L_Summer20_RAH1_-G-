@@ -7,9 +7,9 @@ $result= "DELETE FROM guest_info WHERE NID='$id'";
 
 $query=mysqli_query($conn,$result);
 if($query){
-	echo 'sucessfully deleted ';
+	header("Location: after_log.php?Sucessfully_deleted");
 }
 else{
-	echo 'delect operation failed ';
+	header("Location: after_log.php?delect_operation_failed");
 }
 ?>

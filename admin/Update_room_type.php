@@ -11,10 +11,10 @@ require "connection.php";
     $query=mysqli_query($conn,$result);
 
     if($query){
-	  echo '<p>sucessfully updated</p> ';
+	  header("Location: after_log.php?Sucessfully_updated");
     }
     else{
-    	echo "update failed";
+	  header("Location: after_log.php?update_failed");
     }
 
 ?>

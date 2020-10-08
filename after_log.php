@@ -2,8 +2,18 @@
 
                     <?php
                     require "connection.php";
-                    $id=$_POST['userid'];
+                    session_start();
+                    if(isset($_POST['userid']))
+                    {
+                      $id=$_POST['userid'];
                     $pass=$_POST['password'];
+                    $_SESSION["id"] = $id;
+                    $_SESSION["pass"] = $pass;
+                  }else{
+                    $id=$_SESSION["id"];
+                    $pass=$_SESSION["pass"];
+                  }
+                  
 
                     $result= "SELECT * FROM user_info";
                     $result_1= "SELECT first_name,last_name FROM user_info WHERE id='$id'";

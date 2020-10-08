@@ -97,6 +97,11 @@
 				</div>
 			</div>
 		</div>
+		<div>
+			<form action="after_log.php" method="post">
+      		<button>Back</button>
+    		</form>
+		</div>
 
 
 

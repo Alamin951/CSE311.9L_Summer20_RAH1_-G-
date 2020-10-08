@@ -90,6 +90,11 @@
 
 
 									</div>
+									<div>
+										<form action="g_after_log.php" method="post">
+      									<button action="g_after_log.php">Back</button>
+    									</form>
+									</div>
 				</div>
 			</div>
 		</div>
