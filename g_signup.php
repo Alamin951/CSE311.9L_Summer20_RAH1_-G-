@@ -43,7 +43,7 @@
 					</div>
 					<input type="submit" value="SIGNUP">
 				</form>
-				<p>Don't have an Account? <a href="g_login.php"> Login Now!</a></p>
+				<p>Already have an Account? <a href="g_login.php"> Login Now!</a></p>
 			</div>
 		</div>
 		<!-- copyright -->
