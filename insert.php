@@ -21,9 +21,9 @@ if (isset($_POST["userid"])) {
 	VALUES ('$id','$mail','$cryp_pass','$cryp_cpass','$fname','$lname')");
    if($query)
    {
-	   echo "successfully inserted";
+	   header("Location: index.php?Sucessfully_USER_added");
    }else{
-	   echo "Insertion Failed";
+	   header("Location: index.php?Sucessfully_user_addition_failed");
    }
 }else{
 	echo "Email Already Exist";
