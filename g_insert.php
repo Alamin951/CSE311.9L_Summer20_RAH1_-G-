@@ -24,9 +24,9 @@ if (isset($_POST["userid"])) {
 	VALUES ('$nid','$fname','$lname','$mail','$phn','$cryp_pass','$cryp_cpass','$q','$a')");
    if($query)
    {
-	   echo "successfully inserted";
+	   header("Location: index.php?Sucessfully_Account_created");
    }else{
-	   echo "Insertion Failed";
+	   header("Location: index.php?Sucessfully_failed");
    }
 }else{
 	echo "Email Already Exist";
